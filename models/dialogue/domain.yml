@@ -1,0 +1,96 @@
+%YAML 1.1
+---
+actions:
+- utter_ask_class
+- utter_wrong_class
+- action_choice
+- utter_bye
+- utter_submit
+- utter_ask_roll
+- action_show
+- utter_choice
+- utter_wrong_roll
+- utter_greet
+- utter_details
+- action_image
+- utter_chitchat
+- action_marks
+- utter_slots_values
+config:
+  store_entities_as_slots: true
+entities:
+- thankyou
+- class
+- choice
+- roll
+forms:
+- student_form
+intents:
+- request_marks:
+    use_entities: true
+- roll:
+    use_entities: false
+- class:
+    use_entities: false
+- thankyou:
+    use_entities: true
+- greet:
+    use_entities: true
+- chitchat:
+    use_entities: false
+slots:
+  choice:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  class:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.UnfeaturizedSlot
+  image_url:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  requested_slot:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.UnfeaturizedSlot
+  roll:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.UnfeaturizedSlot
+templates:
+  utter_ask_class:
+  - buttons:
+    - payload: /class{"class":"10th"}
+      title: "10th\n"
+    - payload: /class{"class":"9th"}
+      title: 9th
+    text: Mention ur class?
+  utter_ask_roll:
+  - text: Mention ur  Roll No?
+  utter_bye:
+  - text: okk...Byee
+  utter_chitchat:
+  - text: Chit-Chat
+  utter_choice:
+  - buttons:
+    - payload: /request_marks{"choice":"YES"}
+      title: "YES\n"
+    - payload: /request_marks{"choice":"NO"}
+      title: 'NO'
+    text: Do U want to give Improvement Exam?
+  utter_details:
+  - text: Provide the Details
+  utter_greet:
+  - text: Hey!! How can I help u ?
+  utter_marks:
+  - text: Here is ur Marksheet:-
+  utter_slots_values:
+  - text: "Details\n - roll no: {roll}\n - class: {class}"
+  utter_submit:
+  - text: 'Details:'
+  utter_wrong_class:
+  - text: Class type is not in the database, please try again
+  utter_wrong_roll:
+  - text: Roll No. should be a positive integer, please try again

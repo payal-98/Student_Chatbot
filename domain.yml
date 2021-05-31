@@ -1,0 +1,81 @@
+%YAML 1.1
+---
+actions:
+- utter_ask_class
+- utter_wrong_class
+- action_choice
+- utter_bye
+- utter_submit
+- utter_ask_roll
+- action_show
+- utter_choice
+- utter_wrong_roll
+- utter_greet
+- utter_details
+- action_image
+- utter_chitchat
+- action_marks
+- utter_slots_values
+entities:
+- thankyou
+- class
+- choice
+- roll
+forms:
+- student_form
+intents:
+- request_marks
+- roll:
+    use_entities: false
+- class:
+    use_entities: false
+- thankyou
+- greet
+- chitchat:
+    use_entities: false
+slots:
+  choice:
+    type: text
+  class:
+    type: unfeaturized
+  image_url:
+    type: text
+  requested_slot:
+    type: unfeaturized
+  roll:
+    type: unfeaturized
+templates:
+  utter_ask_class:
+  - buttons:
+    - payload: /class{"class":"10th"}
+      title: "10th\n"
+    - payload: /class{"class":"9th"}
+      title: 9th
+    text: Mention ur class?
+  utter_ask_roll:
+  - text: Mention ur  Roll No?
+  utter_bye:
+  - text: okk...Byee
+  utter_chitchat:
+  - text: Chit-Chat
+  utter_choice:
+  - buttons:
+    - payload: /request_marks{"choice":"YES"}
+      title: "YES"
+    - payload: /request_marks{"choice":"NO"}
+      title: 'NO'
+    text: Do U want to give Improvement Exam?
+  utter_details:
+  - text: Provide the Details
+  utter_greet:
+  - text: Hey!! How can I help u ?
+  utter_marks:
+  - image:"http://d1kkg0o175tdyf.cloudfront.net/large/53973_food_1_app.jpg"
+  utter_slots_values:
+  - text: "Details\n - roll no: {roll}\n - class: {class}"
+  utter_submit:
+  - text: 'Details:'
+  utter_wrong_class:
+  - text: Class type is not in the database, please try again
+  utter_wrong_roll:
+  - text: Roll No. should be a positive integer, please try again
