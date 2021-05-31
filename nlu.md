@@ -66,22 +66,7 @@
 - good morning
 - hii
 - hello
-- hii
-- hii
-- hii
-- hii
-- hii
-- hello
-- hii
-- hi
-- hii
-- hii
-- hii
-- hii
-- hii
-- hello
-- hello
-- hii
+
 
 ## intent:request_marks
 - can u tell my marks?
